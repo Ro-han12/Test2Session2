@@ -1,1 +1,259 @@
+ gcc -g p6original.c
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x92e: file p6original.c, line 54.
+(gdb) r
+Starting program: /home/runner/Test2Session1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6original.c:54
+54  {
+(gdb) n
+57    input_string(string,substring);
+(gdb) s
+input_string (string=0x7ffe18b7ccb0 "\002", 
+    substring=0x7ffe18b7cd80 "\260ͷ\030\376\177") at p6original.c:4
+4     printf("Enter the string\n");
+(gdb) n
+Enter the string
+5     scanf("%s",string);
+(gdb) n
+helloworld
+6     printf("Enter the substring\n");
+(gdb) n
+Enter the substring
+7     scanf("%s",substring);
+(gdb) n
+world
+8   }
+(gdb) n
+main () at p6original.c:58
+58    index=str_reverse(string,substring);
+(gdb) s
+str_reverse (string=0x7ffe18b7ccb0 "helloworld", 
+    substring=0x7ffe18b7cd80 "world") at p6original.c:11
+11    int count=0,count1=0,index,i,j;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+14      count++;
+(gdb) n
+12    for(i=0;string[i]!='\0';i++)
+(gdb) n
+16    for(int i=0;substring[i]!='\0';i++)
+(gdb) n
+18      count1++;
+(gdb) n
+16    for(int i=0;substring[i]!='\0';i++)
+(gdb) n
+18      count1++;
+(gdb) n
+16    for(int i=0;substring[i]!='\0';i++)
+(gdb) n
+18      count1++;
+(gdb) n
+16    for(int i=0;substring[i]!='\0';i++)
+(gdb) n
+18      count1++;
+(gdb) n
+16    for(int i=0;substring[i]!='\0';i++)
+(gdb) n
+18      count1++;
+(gdb) n
+16    for(int i=0;substring[i]!='\0';i++)
+(gdb) n
+20    if(count1>count)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+30          break;
+(gdb) n
+33      if(j==count1)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+30          break;
+(gdb) n
+33      if(j==count1)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+30          break;
+(gdb) n
+33      if(j==count1)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+30          break;
+(gdb) n
+33      if(j==count1)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+30          break;
+(gdb) n
+33      if(j==count1)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+33      if(j==count1)
+(gdb) n
+35        index=i;
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+30          break;
+(gdb) n
+33      if(j==count1)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+30          break;
+(gdb) n
+33      if(j==count1)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+30          break;
+(gdb) n
+33      if(j==count1)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+26      for(j=0;j<count1;j++)
+(gdb) n
+28        if(string[i+j]!=substring[j])
+(gdb) n
+30          break;
+(gdb) n
+33      if(j==count1)
+(gdb) n
+24    for(i=0;i<count;i++) 
+(gdb) n
+38    return index;
+(gdb) n
+39  }
+(gdb) n
+main () at p6original.c:59
+59    output(string,substring,index);
+(gdb) n
+60    return 0;
+(gdb) n
+61  }(gdb) n
+__libc_start_main (main=0x55e0c5c00923 <main>, argc=1, argv=0x7ffe18b7cf38, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffe18b7cf28) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+The index of world in helloworld is 5[Inferior 1 (process 116) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) n
+The program is not being run.
+(gdb) 
 

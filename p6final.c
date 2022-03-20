@@ -1,32 +1,61 @@
-/* Write a program to find the index of a substring of a string.
-void input_string(char *a);
-int str_reverse(char *string, char *substring);
-void output(char *string, char *substring, int index); */
-
-int string_length(char *s)
+#include<stdio.h>
+void input_string(char *string,char *substring)
 {
-  int i;
-  for(i=0;s[i]!='\0';i++);
-  return i;
+  printf("Enter the string\n");
+  scanf("%s",string); //hello
+  printf("Enter the substring\n");
+  scanf("%s",substring); //llo
 }
-
-int string_ncmp(char *s1,char *s2)
+int str_reverse(char *string,char *substring)
 {
-  for(int i=0; i<n && s1[i]==s2[i] && s1[i] != '\0';i++);
-  return s1[i] - s2[i];
+  int count=0,count1=0,index,i,j;
+  for(i=0;string[i]!='\0';i++)
+  {
+    count++;   //hello
+  }
+  for(int i=0;substring[i]!='\0';i++)
+  {
+    count1++;
+  }
+  if(count1>count)
+  {
+    index=-1;
+  }
+  for(i=0;i<count;i++) //hello 
+  {
+    for(j=0;j<count1;j++) //llo
+    {
+      if(string[i+j]!=substring[j])
+      {
+        break;
+      }
+    }
+    if(j==count1)
+    {
+      index=i;
+    }
+  }
+  return index;
 }
-
-
-int string_index(char *s, char *subs)
+void output(char *string,char *substring,int index)
 {
-  int l1=string_lenght(s);
-  int l2=string_lenght(subs);
-  if l1 < l2
-      return -1;
-  for(int i=0;i<l1-l2;i++)
-    if (string_nscmp(s,subs))
-      return i;
-  return -1;
+  int count=0,i;
+  for(i=0;string[i]!='\0';i++)
+  {
+    count++;
+  }
+  if(index<count && index>=0)
+    printf("The index of %s in %s is %d",substring,string,index);
+    
+  else
+    printf("not possible");
 }
-
-/* Understand and debug the functions and write main */
+int main()
+{
+  char string[200],substring[200];
+  int index;
+  input_string(string,substring);
+  index=str_reverse(string,substring);
+  output(string,substring,index);
+  return 0;
+}

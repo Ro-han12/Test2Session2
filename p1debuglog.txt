@@ -1,1 +1,84 @@
+ hello 
+sh: 1: hello: not found
+exit status 127
+ gcc -g p1original.c -lm
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x90b: file p1original.c, line 25.
+(gdb) r
+Starting program: /home/runner/Test2Session1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1original.c:25
+25  {
+(gdb) n
+27    input(&x1,&y1,&x2,&y2);
+(gdb) s
+input (x1=0x7ffdee3946f4, y1=0x7ffdee3946fc, x2=0x7ffdee3946f8, 
+    y2=0x7ffdee394700) at p1original.c:5
+5     printf("Enter the x1 , y1,x2,y2\n");
+(gdb) n
+Enter the x1 , y1,x2,y2
+6     scanf("%f %f %f %f",x1,y1,x2,y2);
+(gdb) n
+1 1 2 2
+7   }
+(gdb) n
+main () at p1original.c:28
+28    distance(x1,y1,x2,y2,&area);
+(gdb) s
+distance (x1=1, y1=1, x2=2, y2=2, area=0x7ffdee394704) at p1original.c:12
+12    a=(y2-y1)*(y2-y1);
+(gdb) n
+13    b=(x2-x1)*(x2-x1);
+(gdb) n
+14    *area=sqrtf(a+b);
+(gdb) p a
+$1 = 1
+(gdb) p b
+$2 = 1
+(gdb) p *area
+$3 = 4.59135442e-41
+(gdb) n
+16  }
+(gdb) n
+main () at p1original.c:29
+29    output(x1,y1,x2,y2,area);
+(gdb) s
+output (x1=1, y1=1, x2=2, y2=2, area=1.41421354) at p1original.c:20
+20    printf("The distance between the points x1= %f and y1= %f and x2=%f and y2=%f",x1,y1,x2,y2);
+(gdb) n
+21    printf("is %f",area);
+(gdb) n
+22  }
+(gdb) n
+main () at p1original.c:30
+30    return 0;
+(gdb) n
+31  }(gdb) n
+__libc_start_main (main=0x55940fa00903 <main>, argc=1, argv=0x7ffdee3947f8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffdee3947e8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+The distance between the points x1= 1.000000 and y1= 1.000000 and x2=2.000000 and y2=2.000000is 1.414214[Inferior 1 (process 1759) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) n
+The program is not being run.
 

@@ -1,1 +1,128 @@
+ hello 
+sh: 1: hello: not found
+exit status 127
+ gcc -g p2original.c -lm
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0xa2e: file p2original.c, line 44.
+(gdb) r
+Starting program: /home/runner/Test2Session1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2original.c:44
+44  {
+(gdb) n
+47    input_line(&x1,&y1,&x2,&y2,&x3,&y3);
+(gdb) s
+input_line (x1=0x7ffef3f886fc, y1=0x7ffef3f88708, x2=0x7ffef3f88700, 
+    y2=0x7ffef3f8870c, x3=0x7ffef3f88704, y3=0x7ffef3f88710) at p2original.c:6
+6     printf("Enter x1 y1 x2 y2 x3 y3  :\n"); 
+(gdb) n
+Enter x1 y1 x2 y2 x3 y3  :
+7     scanf("%f %f %f %f %f %f",x1,y1,x2,y2,x3,y3);
+(gdb) n
+2 3 4 5 7 8
+9   }
+(gdb) 
+main () at p2original.c:48
+48    result=is_triangle(&x1,&y1,&x2,&y2,&x3,&y3);
+(gdb) s
+is_triangle (x1=0x7ffef3f886fc, y1=0x7ffef3f88708, x2=0x7ffef3f88700, 
+    y2=0x7ffef3f8870c, x3=0x7ffef3f88704, y3=0x7ffef3f88710) at p2original.c:21
+21    int istriangle=-1;
+(gdb) n
+23    a=distance(*x1,*y1,*x2,*y2);
+(gdb) s
+distance (x1=2, y1=3, x2=4, y2=5) at p2original.c:13
+13    a=(y2-y1)*(y2-y1);
+(gdb) n
+14    b=(x2-x1)*(x2-x1);
+(gdb) n
+15    area=sqrtf(a+b);
+(gdb) n
+16    return area;
+(gdb) n
+17  }
+(gdb) n
+is_triangle (x1=0x7ffef3f886fc, y1=0x7ffef3f88708, x2=0x7ffef3f88700, 
+    y2=0x7ffef3f8870c, x3=0x7ffef3f88704, y3=0x7ffef3f88710) at p2original.c:24
+24    b=distance(*x2,*y2,*x3,*y3);
+(gdb) s
+distance (x1=4, y1=5, x2=7, y2=8) at p2original.c:13
+13    a=(y2-y1)*(y2-y1);
+(gdb) n
+14    b=(x2-x1)*(x2-x1);
+(gdb) n
+15    area=sqrtf(a+b);
+(gdb) n
+16    return area;
+(gdb) n
+17  }
+(gdb) n
+is_triangle (x1=0x7ffef3f886fc, y1=0x7ffef3f88708, x2=0x7ffef3f88700, 
+    y2=0x7ffef3f8870c, x3=0x7ffef3f88704, y3=0x7ffef3f88710) at p2original.c:25
+25    c=distance(*x3,*y3,*x1,*y1);
+(gdb) s
+distance (x1=7, y1=8, x2=2, y2=3) at p2original.c:13
+13    a=(y2-y1)*(y2-y1);
+(gdb) n
+14    b=(x2-x1)*(x2-x1);
+(gdb) n
+15    area=sqrtf(a+b);
+(gdb) n
+16    return area;
+(gdb) n
+17  }
+(gdb) n
+is_triangle (x1=0x7ffef3f886fc, y1=0x7ffef3f88708, x2=0x7ffef3f88700, 
+    y2=0x7ffef3f8870c, x3=0x7ffef3f88704, y3=0x7ffef3f88710) at p2original.c:26
+26    if((a+b)>c && (b+c)>a && (c+a)>b)
+(gdb) n
+30    return istriangle;
+(gdb) n
+31  }
+(gdb) n
+main () at p2original.c:49
+49    output(&x1,&y1,&x2,&y2,&x3,&y3,result);
+(gdb) s
+output (x1=0x7ffef3f886fc, y1=0x7ffef3f88708, x2=0x7ffef3f88700, 
+    y2=0x7ffef3f8870c, x3=0x7ffef3f88704, y3=0x7ffef3f88710, istriangle=-1)
+    at p2original.c:35
+35    if(istriangle>0)
+(gdb) n
+40      printf("it does not forms a triangle");
+(gdb) n
+41  }
+(gdb) n
+main () at p2original.c:50
+50    return 0;
+(gdb) n
+51  }
+(gdb) n
+__libc_start_main (main=0x55fe8f200a26 <main>, argc=1, argv=0x7ffef3f88808, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffef3f887f8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+it does not forms a triangle[Inferior 1 (process 1584) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) n
+The program is not being run.
+(gdb) 
 
