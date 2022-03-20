@@ -52,3 +52,4 @@ int main()
   output(l);
   return 0;
 }
+.
