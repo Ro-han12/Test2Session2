@@ -59,3 +59,4 @@ int main()
   output(string,substring,index);
   return 0;
 }
+.
