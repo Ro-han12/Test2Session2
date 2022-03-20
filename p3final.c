@@ -37,3 +37,4 @@ int main()
   output(n,res);
   return 0;
 }
+.
