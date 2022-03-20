@@ -38,3 +38,4 @@ int main()
   out_put(n,a);
   return 0;
 }
+.
